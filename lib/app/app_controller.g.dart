@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'counter.dart';
+part of 'app_controller.dart';
 
 // **************************************************************************
 // StoreGenerator
@@ -8,8 +8,8 @@ part of 'counter.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$Counter on CounterBase, Store {
-  final _$valueAtom = Atom(name: 'CounterBase.value');
+mixin _$AppController on _AppBase, Store {
+  final _$valueAtom = Atom(name: '_AppBase.value');
 
   @override
   int get value {
@@ -26,15 +26,15 @@ mixin _$Counter on CounterBase, Store {
     }, _$valueAtom, name: '${_$valueAtom.name}_set');
   }
 
-  final _$CounterBaseActionController = ActionController(name: 'CounterBase');
+  final _$_AppBaseActionController = ActionController(name: '_AppBase');
 
   @override
-  dynamic increment() {
-    final _$actionInfo = _$CounterBaseActionController.startAction();
+  void increment() {
+    final _$actionInfo = _$_AppBaseActionController.startAction();
     try {
       return super.increment();
     } finally {
-      _$CounterBaseActionController.endAction(_$actionInfo);
+      _$_AppBaseActionController.endAction(_$actionInfo);
     }
   }
 
