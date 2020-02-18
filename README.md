@@ -19,7 +19,7 @@ Este projeto foi adicionado as seguintes dependências:
 * build_runner
 
 #### scripts:
-* build: flutter pub run build_runner watch
+* build: flutter pub run build_runner watch,
 * clean: flutter pu run build_runner clean
 
 
