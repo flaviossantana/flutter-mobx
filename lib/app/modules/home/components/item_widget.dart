@@ -4,10 +4,9 @@ import 'package:fluttermobx/app/shared/model/todo_model.dart';
 
 class ItemWidget extends StatelessWidget {
   final TodoModel model;
+  final Function onChanged;
 
-  ItemWidget({
-    this.model,
-  });
+  ItemWidget({this.model, this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class ItemWidget extends StatelessWidget {
         trailing: Checkbox(
           value: model.check,
           onChanged: (bool value) {
-            model.check = value;
+            this.onChanged(value);
           },
         ),
       ),

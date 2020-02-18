@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:fluttermobx/app/modules/home/home_module.dart';
@@ -30,7 +28,7 @@ class _HomePageState extends State<HomePage> {
       context: context,
       builder: (_) {
         return AlertDialog(
-          title: Text("TODO"),
+          title: Text("TODO:"),
           content: TextFormField(
             onChanged: (valor) {
               model.title = valor;
@@ -69,6 +67,10 @@ class _HomePageState extends State<HomePage> {
               TodoModel model = _controller.listAll[index];
               return ItemWidget(
                 model: model,
+                onChanged: (value) {
+                  model.check = value;
+                  _controller.storegeService.update(model);
+                },
               );
             }),
       ),
