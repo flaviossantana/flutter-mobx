@@ -1,15 +1,19 @@
-class TodoModel {
-  int id;
-  String title;
-  bool check;
+import 'package:mobx/mobx.dart';
 
+part 'todo_model.g.dart';
+
+class TodoModel extends _TodoModel with _$TodoModel {
   TodoModel({
-    this.id,
-    this.title,
-    this.check = false,
-  });
+    int id,
+    String title,
+    bool check = false,
+  }) : super(
+          id: id,
+          title: title,
+          check: check,
+        );
 
-  TodoModel.fromJson(Map<String, dynamic> json) {
+  TodoModel.fromJson(Map<dynamic, dynamic> json) {
     id = json['id'];
     title = json['title'];
     check = json['check'];
@@ -22,4 +26,24 @@ class TodoModel {
     data['check'] = this.check;
     return data;
   }
+
+  isValid() {
+    return this.title != null && this.title.length > 0;
+  }
+}
+
+abstract class _TodoModel with Store {
+  int id;
+
+  @observable
+  String title;
+
+  @observable
+  bool check;
+
+  _TodoModel({
+    this.id,
+    this.title,
+    this.check = false,
+  });
 }

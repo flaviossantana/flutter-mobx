@@ -9,21 +9,21 @@ part of 'home_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$HomeController on _HomeBase, Store {
-  final _$listAtom = Atom(name: '_HomeBase.list');
+  final _$listAllAtom = Atom(name: '_HomeBase.listAll');
 
   @override
-  ObservableList<TodoModel> get list {
-    _$listAtom.context.enforceReadPolicy(_$listAtom);
-    _$listAtom.reportObserved();
-    return super.list;
+  ObservableList<TodoModel> get listAll {
+    _$listAllAtom.context.enforceReadPolicy(_$listAllAtom);
+    _$listAllAtom.reportObserved();
+    return super.listAll;
   }
 
   @override
-  set list(ObservableList<TodoModel> value) {
-    _$listAtom.context.conditionallyRunInAction(() {
-      super.list = value;
-      _$listAtom.reportChanged();
-    }, _$listAtom, name: '${_$listAtom.name}_set');
+  set listAll(ObservableList<TodoModel> value) {
+    _$listAllAtom.context.conditionallyRunInAction(() {
+      super.listAll = value;
+      _$listAllAtom.reportChanged();
+    }, _$listAllAtom, name: '${_$listAllAtom.name}_set');
   }
 
   final _$addAsyncAction = AsyncAction('add');
@@ -35,7 +35,7 @@ mixin _$HomeController on _HomeBase, Store {
 
   @override
   String toString() {
-    final string = 'list: ${list.toString()}';
+    final string = 'listAll: ${listAll.toString()}';
     return '{$string}';
   }
 }

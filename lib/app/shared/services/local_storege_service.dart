@@ -22,32 +22,26 @@ class LocalStoregeService extends Disposable {
     }
   }
 
-  box() async {
-    //final box = await completer.future;
-    return await completer.future;
-  }
-
   Future<List<TodoModel>> getAll() async {
-    return box()
-        .values
-        .map(
-          (item) => TodoModel.fromJson(item),
-        )
-        .toList();
+    final box = await completer.future;
+    return box. values.map((item) => TodoModel.fromJson(item)).toList();
   }
 
   Future<TodoModel> add(TodoModel model) async {
-    model.id = box().values.length;
-    await box().put(model.id, model.toJson());
+    final box = await completer.future;
+    model.id = box.values.length;
+    await box.put(model.id, model.toJson());
     return model;
   }
 
   remove(int id) async {
-    await box().delete(id);
+    final box = await completer.future;
+    await box.delete(id);
   }
 
   update(TodoModel model) async {
-    await box().put(
+    final box = await completer.future;
+    await box.put(
       model.id,
       model.toJson(),
     );
@@ -55,6 +49,7 @@ class LocalStoregeService extends Disposable {
 
   @override
   void dispose() async {
-    box().close();
+    final box = await completer.future;
+    box.close();
   }
 }

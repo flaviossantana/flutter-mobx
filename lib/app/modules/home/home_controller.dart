@@ -15,17 +15,19 @@ abstract class _HomeBase with Store {
 
   _init() async {
     final allist = await storegeService.getAll();
-    list.addAll(allist);
+    listAll.addAll(allist);
   }
 
   @action
   add(TodoModel model) async{
-    model = await storegeService.add(model);
-    list.add(model);
+    if(model.isValid()){
+      model = await storegeService.add(model);
+      listAll.add(model);
+    }
   }
 
   @observable
-  ObservableList<TodoModel> list = ObservableList<TodoModel>();
+  ObservableList<TodoModel> listAll = ObservableList<TodoModel>();
 
 
 }
