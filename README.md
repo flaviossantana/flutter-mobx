@@ -23,7 +23,7 @@ Este projeto foi adicionado as seguintes dependências:
 * clean: flutter pu run build_runner clean
 
 
-####Documentação;
+#### Documentação:
 
 * [MobX 1.0.2](https://pub.dev/packages/mobx)
 * [Guia completo do MobX](https://medium.com/flutterando/guia-completo-do-mobx-11d20391428e)
